@@ -14,5 +14,5 @@ module.exports = defineConfig({
 		},
 	},
 
-	publicPath: process.env.NODE_ENV === 'production' ? '/muzic/' : '/',
+	publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
 });
