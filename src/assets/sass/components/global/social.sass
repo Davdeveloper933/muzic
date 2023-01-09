@@ -1,0 +1,52 @@
+.social
+	&__list
+		display: grid
+		grid-template-columns: repeat(5,1fr)
+		grid-gap: $social-item-gap
+
+		+md()
+			display: flex
+	&__item
+		position: relative
+	&__item:hover &__edit
+		opacity: 1
+		transform: translate(0,0)
+	&__edit
+		position: absolute
+		right: -5px
+		top: -5px
+		transform: translate(0,-5px)
+		transition: opacity $transition, transform $transition
+		opacity: 0
+		background: 0
+		padding: 0
+		font-size: 0
+		border: 0
+		cursor: pointer
+		&:hover
+			opacity: 0.9
+	&__icon
+		display: flex
+		align-items: center
+		justify-content: center
+		width: $social-item-width
+		height: $social-item-height
+		background: $social-item-background
+		border-radius: $social-item-radius
+		transition: opacity $transition
+		&:hover
+			opacity: 0.9
+	&__item_add
+		width: $social-item-width
+		height: $social-item-height
+		border-radius: $social-item-radius
+		border: $social-add-border
+		background: $accent-hover
+		font-size: 0
+		display: flex
+		align-items: center
+		justify-content: center
+		transition: opacity $transition
+		cursor: pointer
+		&:hover
+			opacity: 0.9

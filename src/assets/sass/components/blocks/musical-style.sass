@@ -1,0 +1,72 @@
+.musical-style
+	&__title
+		margin-bottom: $musical-style-title-gap
+
+		+md()
+			font-size: 25px
+
+	&__list
+		display: grid
+		grid-template-columns: repeat(3,1fr)
+		grid-gap: $musical-style-list-gap
+
+		+md()
+			display: flex
+			flex-direction: column
+
+	&__name-wrapper
+		margin-bottom: $musical-style-subtitle-gap
+		display: flex
+		align-items: center
+	&__subtitle
+		margin-bottom: 0
+
+		+md()
+			font-size: 20px
+
+	&__icon
+		margin-right: $musical-style-icon-gap
+		font-size: 0
+
+		+md()
+			width: 32px
+			height: 32px
+
+	&__items
+		display: flex
+		flex-wrap: wrap
+		grid-gap: $musical-style-item-gap
+
+		+md()
+			grid-gap: 4px
+
+	&__item
+		padding: $musical-style-item-padding
+		background: $musical-style-item-background
+		border-radius: $musical-style-item-radius
+		color: $musical-style-item-color
+		font-size: $musical-style-item-font-size
+		line-height: $musical-style-item-line-height
+		letter-spacing: $musical-style-item-letter-spacing
+		text-transform: $musical-style-item-text-transform
+		&_add
+			cursor: pointer
+			border: $musical-style-add-border
+			color: $musical-style-add-color
+			transition: opacity $transition
+			&:hover
+				opacity: 0.9
+	&__item-remove
+		border: 0
+		padding: 0
+		background: $musical-style-remove-background
+		font-size: 0
+		border-radius: $musical-style-remove-radius
+		cursor: pointer
+		transition: opacity $transition
+		position: relative
+		top: 3px
+		img
+			pointer-events: none
+		&:hover
+			opacity: 0.9

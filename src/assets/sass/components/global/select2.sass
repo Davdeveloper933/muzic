@@ -1,0 +1,36 @@
+.select2
+	width: 100% !important
+.select2-container .select2-selection--single
+	height: 60px !important
+	display: flex !important
+	align-items: center
+	padding: 20px !important
+	border: 1px solid #E7EBFF !important
+	border-radius: 10px !important
+.select2-container--default .select2-selection--single .select2-selection__rendered
+	height: 100% !important
+	display: flex !important
+	align-items: center
+	flex: 1
+	padding: 0 !important
+	padding-right: 30px !important
+.select2-container--default .select2-selection--single .select2-selection__arrow
+	position: static !important
+	background-image: url(~@/assets/img/select-arrow.svg)
+	background-repeat: no-repeat
+	background-position: center
+	cursor: pointer
+	width: 24px !important
+	height: 24px !important
+	transition: transform $transition
+.select2-container--default .select2-selection--single .select2-selection__arrow b
+	position: static !important
+	transform: none !important
+	display: none !important
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow
+	transform: rotate(180deg)
+.select2-container--default .select2-selection--single .select2-selection__placeholder, .select2-container--default .select2-selection--single .select2-selection__rendered
+	font-size: 16px !important
+	line-height: 19px !important
+	letter-spacing: -0.04em !important
+	color: #45454e !important

@@ -1,0 +1,181 @@
+.search
+	padding: $search-gap
+	&__grid
+		display: grid
+		grid-template-columns: $search-form-width auto
+		grid-gap: $search-grid-gap
+		align-items: flex-start
+	&__form
+		position: sticky
+		top: 20px
+		background: $search-form-background
+		border-radius: $search-form-radius
+		border: $search-form-border
+		padding: $search-form-padding
+		padding-top: $search-form-padding-top
+	&__list
+		flex: 1
+		display: grid
+		grid-template-columns: repeat(1,1fr)
+		grid-gap: $search-list-gap
+	&__item
+		display: grid
+		align-items: center
+		grid-template-columns: $search-item-img-width auto
+		grid-gap: $search-item-gap
+		text-decoration: none
+		color: $search-item-color
+		background: $search-item-background
+		border-radius: $search-item-radius
+		border: $search-item-border
+		padding: $search-item-padding
+	&__item-img
+		width: $search-item-img-width
+		height: $search-item-img-height
+		border-radius: $search-item-img-radius
+		overflow: hidden
+		position: relative
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+	&__item-favorite
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		position: absolute
+		right: 5px
+		bottom: 5px
+		width: $search-favorite-width
+		height: $search-favorite-height
+		border-radius: $search-favorite-radius
+		backdrop-filter: blur($search-favorite-blur)
+		background: $search-favorite-background
+		img
+			width: auto
+			height: auto
+			object-fit: none
+	&__item-top
+		display: flex
+		align-items: center
+		margin-bottom: $search-item-top-gap
+	&__item-name
+		margin: 0
+		margin-right: $search-item-name-gap
+		color: $search-item-name-color
+	&__item-cat
+		text-transform: uppercase
+		padding: $search-item-cat-padding
+		background: $search-item-cat-background
+		border-radius: $search-item-cat-radius
+		color: $search-item-cat-color
+		letter-spacing: $search-item-cat-letter-spacing
+		font-size: $search-item-cat-font-size
+		line-height: $search-item-cat-line-height
+		font-weight: $search-item-cat-font-weight
+	&__item-count
+		margin-left: auto
+		position: relative
+		padding-left: $search-item-count-gap
+		color: $search-item-count-color
+		font-size: $search-item-count-font-size
+		line-height: $search-item-count-line-height
+		letter-spacing: $search-item-count-letter-spacing
+		strong, b
+			color: $search-item-count-strong-color
+			font-weight: $search-item-count-strong-font-weight
+		&::after
+			position: absolute
+			left: 0
+			top: 50%
+			transform: translate(0,-50%)
+			content: ''
+			width: $search-item-count-icon-width
+			height: $search-item-count-icon-height
+			background-image: url($search-item-count-icon-url)
+			background-repeat: no-repeat
+			background-position: center
+	&__item-text
+		color: $search-item-text-color
+		font-size: $search-item-text-font-size
+		line-height: $search-item-text-line-height
+		letter-spacing: $search-item-text-letter-spacing
+	&__select
+		margin-bottom: $search-select-gap
+	&__select-title
+		margin-bottom: $search-subtitle-gap
+	&__range-title
+		margin-bottom: $search-subtitle-gap
+	&__range-inputs
+		display: grid
+		grid-template-columns: repeat(2,$search-input-width)
+		grid-gap: $search-input-gap
+		margin-bottom: $search-input-list-gap
+		justify-content: space-between
+	&__range-input
+		width: 100%
+		text-align: right
+		padding: $search-input-padding
+		font-family: inherit
+		border-radius: $search-input-radius
+		border: $search-input-border
+		font-weight: $search-input-font-weight
+		font-size: $search-input-font-size
+		line-height: $search-input-line-height
+		letter-spacing: $search-input-letter-spacing
+		color: $search-input-color
+	&__range-input-wrapper
+		position: relative
+		&::after
+			position: absolute
+			top: 21px
+			right: 20px
+			content: ' кр'
+			width: 20px
+			height: 20px
+			font-weight: $search-input-font-weight
+			font-size: $search-input-font-size
+			line-height: $search-input-line-height
+			letter-spacing: $search-input-letter-spacing
+			color: $search-input-color
+			pointer-events: none
+		&::before
+			position: absolute
+			left: 20px
+			top: 21px
+			content: ''
+			width: 20px
+			height: 20px
+			font-weight: $search-input-before-font-weight
+			font-size: $search-input-font-size
+			line-height: $search-input-line-height
+			letter-spacing: $search-input-letter-spacing
+			color: $search-input-before-color
+			pointer-events: none
+		&_from
+			&::before
+				content: 'от'
+		&_to
+			&::before
+				content: 'до'
+	&__range
+		.slider-target
+			margin-bottom: $search-slider-gap
+		.slider-base
+			height: $search-slider-height
+			border: $search-slider-border
+			border-radius: $search-slider-radius
+			background: $search-slider-background
+		.slider-connect
+			background: $search-slider-active-background
+		.slider-horizontal .slider-handle
+			top: 50%
+			transform: translate(0,-50%)
+			width: $search-slider-handle-width
+			height: $search-slider-handle-height
+			border: $search-slider-handle-border
+			background: $search-slider-handle-background
+			box-shadow: none
+		.slider-horizontal .slider-origin
+			height: 100%
