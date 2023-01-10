@@ -53,6 +53,47 @@
           </ul>
         </div>
 
+                <transition>
+                  <div class="review-card__reviews review-card__reviews--mobile" v-show="showReviews">
+                    <ul class="reviews-list" v-if="comments.length > 0">
+                      <li class="reviews-list__item" v-for="comment in comments" :key="comment">
+                        <p>{{ comment }}</p>
+                      </li>
+                    </ul>
+                
+                    <!-- <div class="review-description">
+                          <p class="review-description__text">
+                            Песня начинается с интенсивных, зажигательных, запоминающихся гитарных
+                            риффов, смешанных с динамичными барабанными битами. Все это уже
+                            говорит слушателям о наступающем вайбе — жанр здесь можно было бы
+                            охарактеризовать как прогрессив-метал. Он резкий, живой, заводной,
+                            очень хорошо сбалансирован как в аранжировках, так и в композиции в
+                            целом.
+                          </p>
+                        </div> -->
+                    <transition>
+                      <div class="review-input" v-show="reviewIsShown">
+                        <textarea :class="{ disabled: isSavedComment }" :disabled="isSavedComment" v-model="commentValue"
+                          placeholder="Напишите свою рецензию"></textarea>
+                        <div class="review-input__footer">
+                          <button v-show="!isAddedToPlaylist" @click="isShowSelectPlaylist = true" class="add-to-playlist">
+                            Разместить в плейлисте
+                          </button>
+                          <div v-show="isAddedToPlaylist" class="review-input__caption">
+                            <span>Размещено в </span>
+                            <img :src="addedPlaylist.icon || ''" alt="" />
+                            <span>«{{ addedPlaylist.name || "" }}»</span>
+                          </div>
+                          <template v-if="!isSavedComment">
+                            <base-button class="cancel" mode="cancel" title="Отменить" @click="closeInput" />
+                            <base-button class="save" mode="primary" title="Сохранить" @click="saveReview" />
+                          </template>
+                        </div>
+                      </div>
+                    </transition>
+                  </div>
+                </transition>
+
 
         <div class="review-right">
           <p class="review-date">12.11.2022 15:30</p>

@@ -386,10 +386,10 @@ export default {
   &__track-buttons
     display: flex
     gap: 30px
-    flex-wrap: wrap
     width: 100%
     align-items: flex-start
     +md()
+      flex-wrap: wrap
       gap: 15px
     +xs()
       row-gap: 25px
