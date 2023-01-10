@@ -7,7 +7,7 @@
     >
       <img src="@/assets/images/icons/arrow-left.svg" alt="" />
     </button>
-    <div class="pagination__nav">
+    <div class="pagination__nav pagination__nav--desktop">
       <div
         v-for="page in pages"
         :key="page"
@@ -18,6 +18,11 @@
         @click="setPage(page)"
       >
         {{ page }}
+      </div>
+    </div>
+    <div class="pagination__nav pagination__nav--mobile">
+      <div class="pagination__num active" @click="setPage(page)">
+        {{ currentPage }}
       </div>
     </div>
     <button
@@ -104,6 +109,13 @@ export default {
   &__nav
     display: flex
     align-items: center
+    &--desktop
+      +xs()
+        display: none
+    &--mobile
+      display: none
+      +xs()
+        display: block
 
 
   &__num,

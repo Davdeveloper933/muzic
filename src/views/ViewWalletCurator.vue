@@ -21,7 +21,9 @@
           />
           <div class="wallet-data">
             <base-card-pages />
-            <base-card-pagination />
+            <base-card-pagination v-if="false" />
+            <pagination :pages="pagesCount" :currentPage="currentPage" @onChange="onChangePage">
+            </pagination>
           </div>
         </div>
       </div>
@@ -36,6 +38,8 @@ import BaseButton from "@/components/base/BaseButton.vue";
 import BaseCardPayment from "@/components/base/BaseCardPayment.vue";
 import BaseCardPages from "@/components/base/BaseCardPages.vue";
 import BaseCardPagination from "@/components/base/BaseCardPagination.vue";
+import Pagination from "@/components/Pagination.vue";
+import { ref } from "@vue/reactivity";
 
 export default {
   components: {
@@ -45,19 +49,30 @@ export default {
     BaseCardPages,
     BaseCardPagination,
     BaseButton,
+    Pagination
   },
-  data() {
+  setup() {
+    const pagesCount = ref(4);
+    const currentPage = ref(1);
+    const payments = [
+        { user: "@electricfuneralrecords", sum: 15 },
+        { user: "@deafheaven", sum: 15 },
+        { user: "@deafheaven", sum: 55 },
+        { user: "@electricfuneralrecords", sum: 15 },
+        { user: "@electricfuneralrecords", sum: 15 },
+        { user: "@deafheaven", sum: 15 },
+        { user: "@deafheaven", sum: 55 },
+        { user: "@electricfuneralrecords", sum: 15 },
+      ];
+    const onChangePage = (page) => {
+      currentPage.value = page;
+      console.log(currentPage)
+    };
     return {
-      payments: [
-        { user: "@electricfuneralrecords", sum: 15 },
-        { user: "@deafheaven", sum: 15 },
-        { user: "@deafheaven", sum: 55 },
-        { user: "@electricfuneralrecords", sum: 15 },
-        { user: "@electricfuneralrecords", sum: 15 },
-        { user: "@deafheaven", sum: 15 },
-        { user: "@deafheaven", sum: 55 },
-        { user: "@electricfuneralrecords", sum: 15 },
-      ],
+      pagesCount,
+      currentPage,
+      payments,
+      onChangePage
     };
   },
 };
@@ -121,4 +136,6 @@ export default {
     gap: 10px
     +xs()
       gap: 5px
+.pagination
+  margin-top: 0
 </style>

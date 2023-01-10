@@ -120,6 +120,7 @@ body
 
     +md()
       padding: $container-padding-mobile
+
 .main
     flex: 1
     margin-top: auto

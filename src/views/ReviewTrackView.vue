@@ -366,6 +366,7 @@ export default {
 
     const onChangePage = (page) => {
       currentPage.value = page;
+      console.log(currentPage)
     };
 
     return {
