@@ -109,8 +109,7 @@
             stroke: #ff6c6c
     .search__form
         width: 100%
-        +xxs()
-            border: 0
+        border: 0
 .base-modal
     max-height: 480px
     padding: 0
