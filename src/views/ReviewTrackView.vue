@@ -71,7 +71,7 @@
                 </p>
                 <div v-if="comment.isSkipped"  class="review__comment-skipped-wrapp">
                   <div class="review__comment-skipped">
-                    <img src="@/assets/images/icons/man-gesturing-no.png" alt="" />
+                    <img src="@/assets/images/deny-emodji.png" alt="" />
                   </div>
                 </div>
                 <div class="review__comment-bottom">

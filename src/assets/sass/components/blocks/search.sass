@@ -1,10 +1,38 @@
 .search
 	padding: $search-gap
+	+sm()
+		padding: 60px 0 0px 0
 	&__grid
 		display: grid
 		grid-template-columns: $search-form-width auto
 		grid-gap: $search-grid-gap
 		align-items: flex-start
+		@media screen and (max-width: 1300px)
+			grid-template-columns: 1fr auto
+		@media screen and (max-width: 1100px)
+			grid-template-columns: auto
+			gap: 0
+			display: flex
+			flex-direction: column
+	&__filter-button
+		width: 40px
+		height: 40px
+		background: #FFFFFF
+		border: 1px solid #D1D5EF
+		border-radius: 7px
+		display: flex
+		align-items: center
+		justify-content: center
+	&__for-curator
+		gap: 20px
+		margin-bottom: 20px
+		display: none
+		@media screen and (max-width: 1100px)
+			display: flex
+		+xs()
+			justify-content: space-between
+		h2
+			margin-bottom: 0
 	&__form
 		position: sticky
 		top: 20px
@@ -13,6 +41,9 @@
 		border: $search-form-border
 		padding: $search-form-padding
 		padding-top: $search-form-padding-top
+		&--desktop
+			@media screen and (max-width: 1100px)
+				display: none
 	&__list
 		flex: 1
 		display: grid
@@ -21,7 +52,7 @@
 	&__item
 		display: grid
 		align-items: center
-		grid-template-columns: $search-item-img-width auto
+		grid-template-columns: auto auto
 		grid-gap: $search-item-gap
 		text-decoration: none
 		color: $search-item-color
@@ -29,11 +60,70 @@
 		border-radius: $search-item-radius
 		border: $search-item-border
 		padding: $search-item-padding
+		+sm()
+			grid-template-columns: auto
+			grid-gap: 10px
+	&__item-price
+		display: flex
+		flex-direction: column
+		align-items: center
+		+sm()
+			flex-direction: row
+		&__text
+			margin-top: 14px
+			color: #000000
+			font-weight: 400
+			+sm()
+				margin-top: 0
+				margin-left: 15px
+	&__item-content
+		flex-wrap: wrap
+		&--desktop
+			align-items: center
+			display: flex
+			gap: 20px
+			+sm()
+				gap: 15px
+				align-items: flex-start
+				.search__item-top
+					flex-wrap: wrap
+					row-gap: 8px
+				.search__item-count
+					width: 100%
+					margin-left: 0
+				.search__item-cat
+					order: 3
+			+xs()
+				display: none
+		&--mobile
+			display: none
+			gap: 15px
+			.search__item-img
+				width: 60px
+				height: auto
+			.search__item-favorite
+				width: 24px
+				height: 24px
+				right: -7px
+				bottom: -4px
+			.search__item-cat
+				width: fit-content
+				margin-bottom: 12px
+			.search__item-top
+				margin-bottom: 0
+				flex-wrap: wrap
+			.search__item-count
+				width: 100%
+				margin-left: 0
+			+xs()
+				display: flex
+	&__item-info
+		flex: 1
 	&__item-img
 		width: $search-item-img-width
 		height: $search-item-img-height
 		border-radius: $search-item-img-radius
-		overflow: hidden
+		overflow: visible
 		position: relative
 		img
 			width: 100%

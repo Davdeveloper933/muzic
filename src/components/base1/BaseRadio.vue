@@ -1,5 +1,5 @@
 <template>
-  <input class="b-checkbox__input" type="checkbox" :name="name" :id="id" />
+  <input class="b-checkbox__input" type="checkbox" :checked="isChecked" :value="value" @change="updateInput" :name="name" :id="id" />
   <label class="b-checkbox" :for="id">
     <div class="b-checkbox__circle-outer">
       <div class="b-checkbox__circle-inner"></div>
@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  emits: ["change"],
   props: {
     name: String,
     title: String,
@@ -18,13 +19,40 @@ export default {
       default: false,
     },
     id: String,
+    value: { type: String },
+    modelValue: { default: "" },
+    trueValue: { default: true },
+    falseValue: { default: false }
   },
-  // methods: {
-  //   modelValue(event) {
-  //     this.$emit("update:modelValue", event.target.value);
-  //     console.log(event.target.value);
-  //   },
-  // },
+  model: {
+    prop: 'modelValue',
+    event: 'change'
+  },
+  computed: {
+    isChecked() {
+      if (this.modelValue instanceof Array) {
+        return this.modelValue.includes(this.value)
+      }
+      // Note that `true-value` and `false-value` are camelCase in the JS
+      return this.modelValue === this.trueValue
+    }
+  },
+  methods: {
+    updateInput(event) {
+      let isChecked = event.target.checked
+      if (this.modelValue instanceof Array) {
+        let newValue = [...this.modelValue]
+        if (isChecked) {
+          newValue.push(this.value)
+        } else {
+          newValue.splice(newValue.indexOf(this.value), 1)
+        }
+        this.$emit('change', newValue)
+      } else {
+        this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+      }
+    }
+  },
 };
 </script>
 
@@ -41,6 +69,7 @@ export default {
   cursor: pointer
   user-select: none
   transition: 0.3s ease
+  overflow: hidden
 
   &:hover
     border: 1px solid darken($border, 20%)
@@ -80,4 +109,7 @@ export default {
     white-space: nowrap
     color: $placeholder
     font-size: 16px
+    max-width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
 </style>
